@@ -20,9 +20,9 @@ export const Registration = () => {
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
-      fullName: 'Вася Пупкин',
-      email: 'vasya@test.ru',
-      password: '1234',
+      fullName: '',
+      email: '',
+      password: '',
     },
     mode: 'onChange',
   });
@@ -57,7 +57,7 @@ export const Registration = () => {
           helperText={errors.fullName?.message}
           {...register('fullName', { required: 'Укажите полное имя' })}
           className={styles.field}
-          label="Полное имя"
+          label="Полное имя Родителя"
           fullWidth
         />
         <TextField
@@ -66,7 +66,7 @@ export const Registration = () => {
           type="email"
           {...register('email', { required: 'Укажите почту' })}
           className={styles.field}
-          label="E-Mail"
+          label="E-Mail Родителя"
           fullWidth
         />
         <TextField
