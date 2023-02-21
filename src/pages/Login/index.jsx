@@ -20,8 +20,8 @@ export const Login = () => {
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
-      email: 'test@test.ru',
-      password: '123',
+      email: '',
+      password: '',
     },
     mode: 'onChange',
   });
@@ -50,7 +50,7 @@ export const Login = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           className={styles.field}
-          label="E-Mail"
+          label="E-Mail Родителя"
           error={Boolean(errors.email?.message)}
           helperText={errors.email?.message}
           type="email"

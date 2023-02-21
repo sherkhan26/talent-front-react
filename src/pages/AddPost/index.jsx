@@ -2,6 +2,9 @@ import React from 'react';
 import { useNavigate, Navigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
+import Select from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import SimpleMDE from 'react-simplemde-editor';
@@ -65,7 +68,7 @@ export const AddPost = () => {
       navigate(`/posts/${_id}`);
     } catch (err) {
       console.warn(err);
-      alert('Ошибка при создании статьи!');
+      alert('Ошибка при создании!');
     }
   };
 
@@ -81,7 +84,7 @@ export const AddPost = () => {
         })
         .catch((err) => {
           console.warn(err);
-          alert('Ошибка при получении статьи!');
+          alert('Ошибка при получении!');
         });
     }
   }, []);
@@ -108,7 +111,7 @@ export const AddPost = () => {
   return (
     <Paper style={{ padding: 30 }}>
       <Button onClick={() => inputFileRef.current.click()} variant="outlined" size="large">
-        Загрузить превью
+        Загрузить фото участника
       </Button>
       <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
       {imageUrl && (
@@ -130,19 +133,34 @@ export const AddPost = () => {
         // onChange={(e) => setFieldValue('title', e.target.value)}
         classes={{ root: styles.title }}
         variant="standard"
-        placeholder="Заголовок статьи..."
+        placeholder="Полное имя участника"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         fullWidth
       />
-      <TextField
-        value={tags}
-        onChange={(e) => setTags(e.target.value)}
-        classes={{ root: styles.tags }}
-        variant="standard"
-        placeholder="Тэги"
-        fullWidth
-      />
+      {/*  <InputLabel id="demo-simple-select-label">Вид таланта</InputLabel>*/}
+      {/*<Select*/}
+      {/*  value={tags}*/}
+      {/*  onChange={(e) => setTags(e.target.value)}*/}
+      {/*  classes={{ root: styles.tags }}*/}
+      {/*  variant="standard"*/}
+      {/*  fullWidth*/}
+      {/*  labelId="demo-simple-select-label"*/}
+      {/*  id="demo-simple-select"*/}
+      {/*  label="Age"*/}
+      {/*>*/}
+      {/*    <MenuItem value={10}>Ten</MenuItem>*/}
+      {/*    <MenuItem value={20}>Twenty</MenuItem>*/}
+      {/*    <MenuItem value={30}>Thirty</MenuItem>*/}
+      {/*</Select>*/}
+        <TextField
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
+            classes={{ root: styles.tags }}
+            variant="standard"
+            placeholder="Вид таланта"
+            fullWidth
+        />
       <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
       <div className={styles.buttons}>
         <Button onClick={onSubmit} size="large" variant="contained">

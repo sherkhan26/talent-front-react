@@ -22,14 +22,24 @@ export const Header = () => {
     <div className={styles.root}>
       <Container maxWidth="lg">
         <div className={styles.inner}>
-          <Link className={styles.logo} to="/">
-            <div>ARCHAKOV BLOG</div>
-          </Link>
+          <div className={styles.mainLink}>
+            <a className={styles.home} href="https://www.kazatomprom.kz/ru">
+            </a>
+            <Link className={styles.logo} to="/">
+              <Button variant="outlined">Главная</Button>
+            </Link>
+            <Link className={styles.logo} to="/posts">
+              <Button variant="outlined">Участники</Button>
+            </Link>
+            <Link className={styles.logo} to="/live">
+              <Button variant="outlined">Трансляция</Button>
+            </Link>
+          </div>
           <div className={styles.buttons}>
             {isAuth ? (
               <>
                 <Link to="/add-post">
-                  <Button variant="contained">Написать статью</Button>
+                  <Button variant="contained">Добавить участника </Button>
                 </Link>
                 <Button onClick={onClickLogout} variant="contained" color="error">
                   Выйти
